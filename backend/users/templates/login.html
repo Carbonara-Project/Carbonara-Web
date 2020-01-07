@@ -1,0 +1,136 @@
+{% load rest_framework %}
+{% load static %}
+
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Registration page</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Log In">
+    </form>
+    <a href="{% url "social:begin" "github" %}">Github</a>
+    <a href="{% url "social:begin" "google-oauth2" %}">Google</a>
+  </body>
+</html>
+
+<!-- <html>
+
+<head>
+  <link href="{% static "css/material.min.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/login.css" %}" type="text/css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout">
+
+    <section class="container">
+      <div id="cube" class="show-front">
+        <figure class="front">
+          <div class="mdl-card mdl-shadow--6dp">
+            <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+              <h2 class="mdl-card__title-text">Simple Login</h2>
+            </div>
+
+            <div class="mdl-card__supporting-text">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="login" />
+                <label class="mdl-textfield__label" for="login">Login</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="password" />
+                <label class="mdl-textfield__label" for="password">Password</label>
+              </div>
+            </div>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-grid">
+                <button id="login-button" class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                  Login
+                </button>
+
+              </div>
+
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <a onClick='flip("show-left")' class="mdl-color-text--primary">Sign up!</a>
+                  <a onClick='flip("show-bottom")' class="mdl-color-text--primary" style="float: right">Lost Password?
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <figure class="left">
+          <div class="mdl-card mdl-shadow--6dp">
+            <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+              <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" onClick='flip("show-front")'>
+                <i class="material-icons">arrow_back</i>
+              </a>
+              <h2 class="mdl-card__title-text">Sign up</h2>
+            </div>
+
+
+            <div class="mdl-card__supporting-text">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="login" />
+                <label class="mdl-textfield__label" for="login">Login</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="password" />
+                <label class="mdl-textfield__label" for="password">Password</label>
+              </div>
+
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="password2" />
+                <label class="mdl-textfield__label" for="password2">Password repeat</label>
+              </div>
+            </div>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-grid">
+                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                  Sign up
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </figure>
+        <figure class="bottom">
+          <div class="mdl-card mdl-shadow--6dp">
+            <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+              <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" onClick='flip("show-front")'>
+                <i class="material-icons">arrow_back</i>
+              </a>
+              <h2 class="mdl-card__title-text">Lost Password</h2>
+            </div>
+
+
+            <div class="mdl-card__supporting-text">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="email" id="email" />
+                <label class="mdl-textfield__label" for="email">E-Mail</label>
+              </div>
+            </div>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-grid">
+                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                  Reset Password
+                </button>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+  </div>
+  <script src="js/material.min.js"></script>
+  <script src="js/login.js"></script>
+</body>
+
+</html> -->

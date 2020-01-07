@@ -1,0 +1,65 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    entrypoint: ./entrypoint.sh
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes: 
+      - .:/home/carbonara
+    ports:
+      - 5000:5000
+      - 3000:3000
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - SECRET_KEY=***
+      - SENDGRID_API_KEY=***
+      - DATABASE_URL=***
+
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=***
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=***
+      
+      - CLIENT_ID=***
+
+      - GOOGLE_APPLICATION_CREDENTIALS=***
+    labels:
+      NAME: "carbonara_backend"
+  db:
+    image: mysql:5.7.22
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: passpass
+      MYSQL_DATABASE: carbonara_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: passpass
+  adminer:
+    image: adminer
+    ports:
+      - 8090:8080
+  apache:
+    build:
+      context: .
+      dockerfile: Apache.Dockerfile
+    entrypoint: ../apache_entrypoint.sh
+    ports:
+      - '8000:80'
+    volumes: 
+      - ./:/home/carbonara.com
+      - ./backend/apache.conf:/etc/apache2/sites-available/carbonara.conf:ro
+    depends_on:
+      - db
+    environment:
+      - SECRET_KEY=***
+      - SENDGRID_API_KEY=***
+      - DATABASE_URL=***
+
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=***
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=***
+      
+      - CLIENT_ID=***
+
+      - GOOGLE_APPLICATION_CREDENTIALS=***
